@@ -2,6 +2,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
+; This should automatically install every needed package. On a specific system, if there are unneeded ones, remove
+; them from here before launching emacs
 (setq package-selected-packages '(lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp
 					   projectile hydra flycheck company avy which-key helm-xref dap-mode ccls
 					   doom-modeline evil flycheck-rust good-scroll lsp-pyright modus-themes
@@ -11,12 +13,14 @@
   (package-refresh-contents)
   (mapc #'package-install package-selected-packages))
 
+; https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Iosevka.zip
 (set-frame-font "Iosevka NFM 13" nil t)
 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+; MUCH better syntax highlighting
 (require 'tree-sitter)
 (require 'tree-sitter-langs)
 
@@ -59,6 +63,7 @@
 (define-key global-map [remap switch-to-buffer] #'helm-mini)
 
 ; C/C++
+; requires you to sudo apt install ccls
 (require 'ccls)
 (setq ccls-executable "/usr/bin/ccls")
 (setq flycheck-gcc-args '("-Wall" "-Wextra"))
@@ -83,7 +88,7 @@
 (setq lsp-ui-sideline-show-diagnostics t)
 (setq lsp-ui-sideline-show-hover t)
 (setq lsp-ui-sideline-show-code-actions t)
-  (set-face-attribute 'lsp-ui-sideline-global nil         :family "IosevkaTerm NFM")
+  (set-face-attribute 'lsp-ui-sideline-global nil         :family "IosevkaTerm NFM") ; https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/IosevkaTerm.zip
   (set-face-attribute 'lsp-ui-sideline-code-action nil    :family "IosevkaTerm NFM")
   (set-face-attribute 'lsp-ui-sideline-symbol-info nil    :family "IosevkaTerm NFM")
   (set-face-attribute 'lsp-ui-sideline-symbol nil         :family "IosevkaTerm NFM")
@@ -145,6 +150,8 @@
 (evil-set-leader 'normal " ")
 (evil-define-key 'normal 'global (kbd "SPC d") 'lsp-ui-peek-find-definitions)
 (evil-define-key 'normal 'global (kbd "SPC r") 'lsp-ui-peek-find-references)
+(evil-define-key 'normal 'global (kbd "SPC t") 'treemacs-display-current-project-exclusively)
+(evil-define-key 'normal 'global (kbd "SPC T") 'treemacs)
 
 (require 'treemacs-evil)
 
