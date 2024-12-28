@@ -17,3 +17,5 @@
 		   (display-line-numbers(global-display-line-numbers-mode t)-mode 0))))
 
 (global-visual-line-mode 1)
+
+(setq scroll-conservatively 101)

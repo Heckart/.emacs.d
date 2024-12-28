@@ -1,3 +1,6 @@
+; This line needs to be below line 17 until gcmh is installed 
+(gcmh-mode 1)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -6,8 +9,8 @@
 ; them from here before launching emacs
 (setq package-selected-packages '(lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp
 					   projectile hydra flycheck company avy which-key helm-xref dap-mode ccls
-					   doom-modeline evil flycheck-rust good-scroll lsp-pyright modus-themes
-					   tree-sitter tree-sitter-langs))
+					   doom-modeline evil flycheck-rust lsp-pyright modus-themes
+					   tree-sitter tree-sitter-langs gcmh))
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
   (package-refresh-contents)
@@ -30,7 +33,7 @@
  '(global-word-wrap-whitespace-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(tree-sitter-langs tree-sitter gruber-darker-theme treemacs-evil treemacs-all-the-icons flycheck-rust lsp-pyright ghub doom-modeline modus-themes evil good-scroll yasnippet-snippets ccls lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode))
+   '(gcmh tree-sitter-langs tree-sitter gruber-darker-theme treemacs-evil treemacs-all-the-icons flycheck-rust lsp-pyright ghub doom-modeline modus-themes evil yasnippet-snippets ccls lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode))
  '(word-wrap t)
  '(xterm-mouse-mode t))
 (custom-set-faces
