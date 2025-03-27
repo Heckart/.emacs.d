@@ -8,9 +8,9 @@
 ; This should automatically install every needed package. On a specific system, if there are unneeded ones, remove
 ; them from here before launching emacs
 (setq package-selected-packages '(lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp
-					   projectile hydra flycheck company avy which-key helm-xref dap-mode ccls
+					   projectile hydra flycheck company avy which-key helm-xref dap-mode 
 					   doom-modeline evil flycheck-rust lsp-pyright tree-sitter tree-sitter-langs
-					   gcmh gruber-darker-theme treemacs-evil))
+					   gcmh gruber-darker-theme treemacs-evil yasnippet-snippets))
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
   (package-refresh-contents)
@@ -29,11 +29,22 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd" default))
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+     default))
  '(global-word-wrap-whitespace-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '(gcmh tree-sitter-langs tree-sitter gruber-darker-theme treemacs-evil treemacs-all-the-icons flycheck-rust lsp-pyright ghub doom-modeline modus-themes evil yasnippet-snippets ccls lsp-mode lsp-ui yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode))
+   '(all-the-icons-completion all-the-icons-dired all-the-icons-gnus
+			      all-the-icons-ibuffer
+			      all-the-icons-nerd-fonts avy company
+			      dap-mode doom-modeline evil flycheck
+			      flycheck-rust gcmh ghub
+			      gruber-darker-theme helm-lsp helm-xref
+			      hydra lsp-mode lsp-pyright lsp-treemacs
+			      lsp-ui modus-themes projectile
+			      tree-sitter tree-sitter-langs
+			      treemacs-all-the-icons treemacs-evil
+			      which-key yasnippet))
  '(word-wrap t)
  '(xterm-mouse-mode t))
 (custom-set-faces

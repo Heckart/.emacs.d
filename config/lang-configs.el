@@ -1,7 +1,5 @@
 ; C/C++
-; requires you to sudo apt install ccls
-(require 'ccls)
-(setq ccls-executable "/usr/bin/ccls")
+; requires you to "sudo apt install clangd" and use bear to generate compile commands 
 (setq flycheck-gcc-args '("-Wall" "-Wextra"))
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
