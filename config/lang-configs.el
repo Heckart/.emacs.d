@@ -23,3 +23,9 @@
 (add-hook 'flycheck-rust-setup))
 (add-hook 'rust-mode-hook 'lsp-deferred)
 (add-hook 'rust-mode-hook #'tree-sitter-hl-mode)
+
+;C#
+;https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian?tabs=dotnet9
+(add-hook 'csharp-mode-hook 'lsp)
+(add-hook 'csharp-mode-hook #'tree-sitter-hl-mode)
+
